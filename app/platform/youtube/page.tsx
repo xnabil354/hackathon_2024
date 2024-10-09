@@ -75,7 +75,7 @@ const YoutubePage = () => {
                 className="px-4 py-2 bg-lime-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-110 hover:bg-lime-600 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavigation('/platform/Youtube/register-akun')}
+                onClick={() => handleNavigation('/platform/youtube/register-akun')}
               >
                 Pelajari
               </motion.button>
@@ -109,7 +109,7 @@ const YoutubePage = () => {
                 className="px-4 py-2 bg-lime-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-110 hover:bg-lime-600 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavigation('/platform/Youtube/membuat-profile')}
+                onClick={() => handleNavigation('/platform/youtube/membuat-profile')}
               >
                 Pelajari
               </motion.button>
@@ -163,7 +163,7 @@ const YoutubePage = () => {
                 className="px-4 py-2 bg-lime-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-110 hover:bg-lime-600 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavigation('/platform/Youtube/content-creator')}
+                onClick={() => handleNavigation('/platform/youtube/content-creator')}
               >
                 Pelajari
               </motion.button>

@@ -9,7 +9,7 @@ const slides = [
   {
     text: "Siapa yang ingin kamu jangkau? Penting untuk mengetahui siapa yang akan menonton kontenmu. Misalnya, apakah audiensmu adalah keluarga, remaja, atau wisatawan yang mencari petualangan?",
     additionalText: "Apa yang mereka suka? Coba pikirkan tentang apa yang menarik bagi mereka. Apakah mereka suka alam, budaya, makanan, atau aktivitas ekstrem? Memahami minat mereka akan membantumu membuat konten yang lebih menarik.",
-    image: "https://a.top4top.io/p_3204qy9222.png", // External image URL
+    image: "https://l.top4top.io/p_32047mwxz1.png", // External image URL
   },
   {
     text: `Riset Konten dan Ide Kreatif
@@ -19,48 +19,38 @@ Ini akan memberimu ide untuk membuat video yang lebih baik.
 Buat daftar ide. `,
     additionalText: `Pikirkan tentang format video yang ingin kamu buat. 
 Misalnya, kamu bisa membuat video tips perjalanan, vlog sehari di destinasi, atau tantangan seru di tempat tersebut.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
-  },
-  {
-    text: `Riset Konten dan Ide Kreatif
-Lihat konten orang lain. 
-Tonton video TikTok lain yang berkaitan dengan pariwisata. Catat apa yang kamu suka dan apa yang tidak.
-Ini akan memberimu ide untuk membuat video yang lebih baik.
-Buat daftar ide. `,
-    additionalText: `Pikirkan tentang format video yang ingin kamu buat. 
-Misalnya, kamu bisa membuat video tips perjalanan, vlog sehari di destinasi, atau tantangan seru di tempat tersebut.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    image: "https://a.top4top.io/p_3204qy9222.png", // Another valid external image URL
   },
   {
     text: `Analisis VIdeo Viral
 Amati video yang mendapatkan banyak interaksi. Cari tahu elemen yang membuatnya berhasil. 
 Catat teknik pengeditan, penggunaan musik, dan jenis konten yang paling diminati. Ini bisa membantumu memahami apa yang disukai audiens.`,
     additionalText: `Konten dapat disajikan dengan santai, serius, menghibur dan banyak lagi. Gaya penyampaian dapat mempengaruhi daya tarik konten terhadap audiens.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    image: "https://d.top4top.io/p_3204nzjys1.png", // Another valid external image URL
   },
   {
     text: `Ciptakan Cerita Menarik
 Buatlah narasi yang kuat untuk video kamu. Ceritakan pengalaman unik di destinasi wisata atau tunjukkan budaya lokal dengan cara yang menarik.`,
     additionalText: `Mulailah dengan memperkenalkan latar belakang destinasi, lalu ceritakan pengalaman unik atau momen tak terlupakan yang bisa dialami pengunjung, seperti aktivitas menarik, keindahan alam, atau budaya lokal yang khas.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    image: "https://e.top4top.io/p_3204zo0kx2.png", // Another valid external image URL
   },
   {
     text: `Pelajari Strategi Pemasaran
 Lakukan riset terhadap akun-akun sukses yang fokus pada promosi pariwisata dan analisis bagaimana mereka menyampaikan pesan kepada audiens.`,
     additionalText: `Amati teknik yang mereka gunakan, seperti format konten, pemilihan musik, dan interaksi dengan pengikut, serta cara mereka memanfaatkan tren untuk menjangkau lebih banyak orang.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    image: "https://i.top4top.io/p_3204m54pd1.png", // Another valid external image URL
   },
   {
     text: `Menciptakan Konten Promosi
 Dorong pengguna untuk membuat dan membagikan video pengalaman mereka di destinasi wisata yang kamu promosikan.`,
     additionalText: `Ajak mereka berpartisipasi dalam tantangan atau menggunakan hashtag khusus untuk mengumpulkan konten tersebut. Bagikan dan apresiasi karya mereka, sehingga menciptakan komunitas yang saling mendukung dan meningkatkan keterlibatan.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    image: "https://j.top4top.io/p_3204mhxy32.png", // Another valid external image URL
   },
   {
     text: `Penggunaan Hashtag dengan Bijak
 Pilih kombinasi hashtag umum yang banyak dicari, seperti #WisataIndonesia, dan hashtag yang lebih spesifik untuk menarik audiens yang tertarik dengan jenis konten tertentu. Pastikan hashtag tersebut sesuai dengan tema video agar audiens yang melihatnya dapat dengan mudah menemukan kontenmu.`,
     additionalText: `Ini meningkatkan visibilitas dan keterlibatan konten promosi pariwisata di daerahmu.`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    image: "https://k.top4top.io/p_3204f87w83.png", // Another valid external image URL
   },
 ];
 
