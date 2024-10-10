@@ -73,7 +73,7 @@ export default function ContentCreatorPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Content Section */}
-      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative">
+      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative mb-10 mt-10">
         {/* Back Button */}
         <button
           onClick={handleBack}

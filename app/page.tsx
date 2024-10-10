@@ -16,27 +16,36 @@ const Home = () => {
   return (
     <main>
       <section className="relative">
-        <Image
-          src="https://c.top4top.io/p_3203xbm5l1.jpg"
-          alt="Background image"
-          width={1920}
-          height={1200}
-          className="w-full h-96 object-cover"
-        />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-          <h1 className="text-4xl font-bold text-center">
-            Belajar Sosial Media Marketing Pariwisata
-          </h1>
-          <div className="mt-4 flex items-center">
-            <button
-              onClick={handleStartClick} // Navigasi ke halaman platform
-              className="px-6 py-2 bg-lime-400 text-gray-800 font-semibold rounded mr-4"
-            >
-              Mulai Sekarang
-            </button>
-          </div>
-        </div>
-      </section>
+  <Image
+    src="https://c.top4top.io/p_3203xbm5l1.jpg"
+    alt="Background image"
+    width={1920}
+    height={1200}
+    className="w-full h-96 object-cover"
+  />
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+    <h1
+      className="text-4xl font-bold text-center animate-fade-in-up"
+      style={{
+        textShadow: "2px 2px 8px rgba(0, 0, 0, 0.6)", // Memberi efek bayangan teks
+      }}
+    >
+      Belajar Sosial Media Marketing Pariwisata
+    </h1>
+    <div className="mt-4 flex items-center">
+      <button
+        onClick={handleStartClick}
+        className="px-8 py-3 bg-gradient-to-r from-green-400 to-lime-500 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 active:scale-95"
+        style={{
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)", // Shadow lebih dramatis
+        }}
+      >
+        Mulai Sekarang
+      </button>
+    </div>
+  </div>
+</section>
+
 
       <section className="p-8 bg-blue-50 text-center">
         <h2 className="text-3xl font-extrabold text-gray-800 mb-4 relative inline-block before:absolute before:w-24 before:h-1 before:bg-gradient-to-r from-green-400 to-blue-500 before:-bottom-2 before:left-1/2 before:-translate-x-1/2">

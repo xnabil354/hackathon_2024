@@ -11,25 +11,23 @@ import Footer from '../../../../components/Footer'
 const steps = [
   {
     id: 1,
-    title: `Membuka YouTube
-Tampilan Halaman Pendaftaran Pada halaman awal YouTube, Anda perlu memilih "Sign in" untuk memulai proses pendaftaran.`,
-    imageSrc: 'https://h.top4top.io/p_3204max9b1.png',
-    description: `Memasukkan Email atau Nomor Telepon Masukkan alamat email atau nomor telepon yang terhubung dengan akun Google Anda. Jika belum memiliki akun, klik "Create account" untuk membuatnya.
+    title: `Membuka YouTube`,
+    imageSrc: 'https://e.top4top.io/p_32040vy5p1.png',
+    description: `Tampilan Halaman Pendaftaran Pada halaman awal YouTube, Anda perlu memilih "Sign in" untuk memulai proses pendaftaran.
+Memasukkan Email atau Nomor Telepon Masukkan alamat email atau nomor telepon yang terhubung dengan akun Google Anda. Jika belum memiliki akun, klik "Create account" untuk membuatnya.
 Memasukkan Kata Sandi Setelah memasukkan email, Anda akan diminta untuk memasukkan kata sandi akun Google Anda. Pastikan kata sandi yang dimasukkan benar, lalu klik "Next".`,
   },
   {
     id: 2,
-    title: `Membuka Youtube`,
-    imageSrc: 'https://i.top4top.io/p_32044oony2.png',
-    description: `Masuk ke Akun YouTube
-Tampilan Halaman Akun Setelah berhasil masuk, Anda akan diarahkan ke halaman utama YouTube. Pilih ikon profil di sudut kanan atas, lalu klik "Create a channel".`,
+    title: `Masuk ke Akun YouTube`,
+    imageSrc: 'https://a.top4top.io/p_3204bldgs3.png',
+    description: `Tampilan Halaman Akun Setelah berhasil masuk, Anda akan diarahkan ke halaman utama YouTube. Pilih ikon profil di sudut kanan atas, lalu klik "Create a channel".`,
   },
   {
     id: 3,
-    title: `Menyesuaikan Profile Channel`,
-    imageSrc: 'https://j.top4top.io/p_320473yz33.png',
-    description: `Menyesuaikan Profil Channel
-Pengaturan Profil Anda akan diminta untuk memasukkan nama channel yang diinginkan dan memilih foto profil. Pastikan nama dan foto sesuai dengan tema channel yang ingin Anda buat. Klik "Create Channel" untuk menyelesaikan proses ini.`,
+    title: `Menyesuaikan Profil Channel`,
+    imageSrc: 'https://l.top4top.io/p_3204vf1ox2.png',
+    description: `Pengaturan Profil Anda akan diminta untuk memasukkan nama channel yang diinginkan dan memilih foto profil. Pastikan nama dan foto sesuai dengan tema channel yang ingin Anda buat. Klik "Create Channel" untuk menyelesaikan proses ini.`,
   }
 ];
 

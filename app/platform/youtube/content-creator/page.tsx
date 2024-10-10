@@ -8,15 +8,47 @@ import Footer from '../../../../components/Footer'
 
 const slides = [
   {
-    text: "Siapa yang ingin kamu jangkau? Penting untuk mengetahui siapa yang akan menonton kontenmu...",
-    additionalText: "Apa yang mereka suka? Coba pikirkan tentang apa yang menarik bagi mereka...",
-    image: "https://a.top4top.io/p_3204qy9222.png", // External image URL
+    text: `Mencari Konten Relevan
+Langkah pertama adalah melakukan pencarian di YouTube dengan kata kunci yang relevan. Gunakan frasa seperti "promosi pariwisata," "wisata lokal," "strategi pemasaran pariwisata," dan sejenisnya. Ini membantu menemukan video yang secara langsung membahas topik yang Anda minati.`,
+    additionalText: "Gunakan filter pencarian untuk video yang paling banyak dilihat, sehingga mendapatkan informasi terkini tentang pemasaran pariwisata.",
+    image: "https://d.top4top.io/p_3205sclzm1.png", // External image URL
   },
   {
-    text: `Riset Konten dan Ide Kreatif
-Lihat konten orang lain...`,
-    additionalText: `Pikirkan tentang format video yang ingin kamu buat...`,
-    image: "https://l.top4top.io/p_32047mwxz1.png", // Another valid external image URL
+    text: `Mencatat Ide dan Strategi
+Saat menonton video, catat poin-poin penting dan strategi yang dapat diimplementasikan. Misalnya, jika seorang pembicara membahas pentingnya konten visual yang menarik, buatlah catatan tentang cara membuat foto atau video yang memikat.`,
+    additionalText: `Pertimbangkan untuk membuat mind map atau diagram untuk mengorganisir ide-ide yang dijadikan sebagai visualisasi strategi pemasaran.`,
+    image: "https://e.top4top.io/p_3205jp2f82.png", // Another valid external image URL
+  },
+  {
+    text: `Mengikuti Channel Edukasi
+Setelah menemukan konten yang bermanfaat, penting untuk berlangganan (subscribe) ke channel yang fokus pada pendidikan pariwisata dan pemasaran.`,
+    additionalText: `Cari tahu tentang kredibilitas channel dengan melihat jumlah subscriber, frekuensi pembaruan konten, dan interaksi dalam komentar. Channel yang memiliki banyak pengikut dan engagement tinggi biasanya lebih dapat diandalkan dalam menyajikan informasi bermanfaat.`,
+    image: "https://c.top4top.io/p_3205dp0jt1.png", // Another valid external image URL
+  },
+  {
+    text: `Mempelajari Analisis
+Tonton video yang menjelaskan cara menganalisis performa konten Anda. Pelajari tentang metrik yang perlu diperhatikan, seperti jumlah tayangan, interaksi pengguna, dan rasio klik-tayang.`,
+    additionalText: `Mempelajari Analisis
+Tonton video yang menjelaskan cara menganalisis performa konten Anda. Pelajari tentang metrik yang perlu diperhatikan, seperti jumlah tayangan, interaksi pengguna, dan rasio klik-tayang.`,
+    image: "https://h.top4top.io/p_3205jj8ax1.png", // Another valid external image URL
+  },
+  {
+    text: `Berlatih dan Beradaptasi
+Lakukan eksperimen dengan berbagai format konten dan gaya presentasi. Misalnya, Anda bisa mencoba video pendek, vlog, atau infografis. `,
+    additionalText: `Amati reaksi audiens dan gunakan umpan balik untuk menyesuaikan konten Anda agar lebih menarik. Tanyakan apa yang mereka suka dan apa yang bisa ditingkatkan. Ini akan membantu Anda memahami preferensi audiens dan meningkatkan keterlibatan.`,
+    image: "https://a.top4top.io/p_3205ohn271.png", // Another valid external image URL
+  },
+  {
+    text: `Mengikuti Trend
+Perhatikan video terbaru yang membahas tren dalam pariwisata, terutama yang berkaitan dengan pemasaran di media sosial.`,
+    additionalText: `Selain mengamati tren di platform media sosial lainnya, selalu update dengan berita pariwisata dan marketing untuk melihat bagaimana industri berkembang. Dengan demikian, Anda bisa lebih adaptif dalam strategi pemasaran dan konten yang Anda buat.`,
+    image: "https://g.top4top.io/p_3205omyj31.png", // Another valid external image URL
+  },
+  {
+    text: `Bergabung Dalam Komunitas
+Cari grup atau forum di YouTube atau platform media sosial lainnya yang membahas pariwisata dan pemasaran. Bergabung dalam komunitas ini memungkinkan Anda untuk berbagi pengalaman, bertanya, dan mendapatkan masukan dari orang-orang yang memiliki minat yang sama.`,
+    additionalText: `Berpartisipasi aktif dalam diskusi, bertanya, dan berbagi pengalaman dapat meningkatkan pengetahuan dan keterampilan Anda.`,
+    image: "https://l.top4top.io/p_3205v8g1z1.png", // Another valid external image URL
   },
 ];
 
@@ -38,7 +70,7 @@ export default function ContentCreatorPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Content Section */}
-      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative">
+      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative mb-10 mt-10">
         {/* Back Button */}
         <button
           onClick={handleBack}
