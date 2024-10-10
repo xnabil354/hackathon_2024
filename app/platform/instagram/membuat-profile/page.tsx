@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../../../../components/Footer'
 
 const steps = [
   {
@@ -52,7 +53,8 @@ const MembuatProfilePage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center">
+    <main className="min-h-screen bg-gray-100 flex flex-col justify-center relative">
+      <section className="w-full max-w-4xl space-y-12 px-4 mx-auto mb-14">
       {/* Back Button */}
       <button
         onClick={handleBack}
@@ -73,7 +75,6 @@ const MembuatProfilePage = () => {
       </motion.h1>
 
       {/* Step-by-step guide */}
-      <section className="w-full max-w-4xl space-y-12 px-4">
         {steps.map((step, index) => (
           <motion.div
             key={step.id}
@@ -101,9 +102,7 @@ const MembuatProfilePage = () => {
       </section>
 
       {/* Footer placeholder */}
-      <footer className="mt-20 mb-10 text-gray-600 text-center">
-        © 2024 Instagram Tutorial - All Rights Reserved
-      </footer>
+      <Footer />
     </main>
   );
 };

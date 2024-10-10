@@ -20,14 +20,16 @@ export default function Navbar() {
     <header className="flex flex-col p-4 bg-white shadow-md md:flex-row md:justify-between md:items-center relative px-10 transition-all duration-300 ease-in-out border-b border-gray-200">
       {/* Logo Section with Image */}
       <div className="flex justify-between items-center w-full md:w-auto">
-        <div className="relative w-32 h-12"> {/* Adjust the width and height as needed */}
-          <Image
-            src="https://g.top4top.io/p_3204risgb1.png"
-            alt="Logo"
-            layout="fill" // Automatically fills the container size
-            objectFit="contain" // Ensures the image fits within the container without being cropped
-          />
-        </div>
+        <Link href="/" passHref>  {/* passHref ensures correct behavior */}
+          <div className="relative w-32 h-12 cursor-pointer"> {/* Only one child passed to Link */}
+            <Image
+              src="https://g.top4top.io/p_3204risgb1.png"
+              alt="Logo"
+              layout="fill" // Automatically fills the container size
+              objectFit="contain" // Ensures the image fits within the container without being cropped
+            />
+          </div>
+        </Link>
 
         {/* Mobile Menu Button */}
         <div className="text-3xl cursor-pointer md:hidden" onClick={toggleMenu}>

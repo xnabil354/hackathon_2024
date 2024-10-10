@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../../../../components/Footer'
 
 const slides = [
   {
@@ -66,30 +67,32 @@ export default function ContentCreatorPage() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex items-center justify-center bg-gray-100 relative">
-      {/* Back Button */}
-      <button
-        onClick={handleBack}
-        className="absolute top-4 left-4 p-3 bg-white text-lime-500 rounded-full shadow-lg transition-transform transform hover:scale-110 hover:bg-lime-500 hover:text-white hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-lime-300 z-50"
-        aria-label="Back"
-      >
-        <FontAwesomeIcon icon={faArrowLeft} className="w-6 h-6" />
-      </button>
+    <div className="flex flex-col min-h-screen">
+      {/* Content Section */}
+      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative">
+        {/* Back Button */}
+        <button
+          onClick={handleBack}
+          className="absolute top-4 left-4 p-3 bg-white text-lime-500 rounded-full shadow-lg transition-transform transform hover:scale-110 hover:bg-lime-500 hover:text-white hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-lime-300 z-50"
+          aria-label="Back"
+        >
+          <FontAwesomeIcon icon={faArrowLeft} className="w-6 h-6" />
+        </button>
 
-      <div className="relative w-full max-w-6xl h-auto md:h-96 overflow-hidden flex items-center justify-between flex-col md:flex-row bg-white shadow-xl rounded-lg p-6">
-        {slides.map((slide, index) => (
-          <AnimatePresence key={index}>
-            {currentSlide === index && (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 100 }} // Start from the right
-                animate={{ opacity: 1, x: 0 }} // Slide into view
-                exit={{ opacity: 0, x: -100 }} // Exit to the left
-                transition={{ duration: 0.8, ease: "easeInOut" }} // Smooth transition
-                className="w-full flex flex-col md:flex-row items-center justify-between"
-              >
-                {/* Text section */}
-                <div className="w-full md:w-1/2 p-4">
+        <div className="relative w-full max-w-6xl h-auto md:h-96 overflow-hidden flex items-center justify-between flex-col md:flex-row bg-white shadow-xl rounded-lg border-8 border-gray-300 p-8">
+  {slides.map((slide, index) => (
+    <AnimatePresence key={index}>
+      {currentSlide === index && (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: 100 }} // Start from the right
+          animate={{ opacity: 1, x: 0 }} // Slide into view
+          exit={{ opacity: 0, x: -100 }} // Exit to the left
+          transition={{ duration: 0.8, ease: "easeInOut" }} // Smooth transition
+          className="w-full flex flex-col md:flex-row items-center justify-between"
+        >
+          {/* Text section */}
+          <div className="w-full md:w-1/2 p-4">
                   <h2 className="text-gray-900 text-lg md:text-2xl font-semibold mb-4">
                     {slide.text}
                   </h2>
@@ -98,32 +101,39 @@ export default function ContentCreatorPage() {
                   </p>
                 </div>
 
-                {/* Image section */}
-                <div className="w-full md:w-1/2 h-64 md:h-full relative">
-                  <img
-                    src={slide.image}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        ))}
+          {/* Image section */}
+          <div className="md:w-1/2 h-80 relative">
+            <img
+              src={slide.image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  ))}
+</div>
+
+
+        {/* Slide navigation */}
+        <div className="absolute bottom-4 flex justify-center w-full space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                currentSlide === index ? 'bg-blue-500 scale-110' : 'bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Slide navigation */}
-      <div className="absolute bottom-4 flex justify-center w-full space-x-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-300 ${
-              currentSlide === index ? 'bg-blue-500 scale-110' : 'bg-gray-400'
-            }`}
-          />
-        ))}
-      </div>
+      {/* Footer Section */}
+      <footer className="w-full bg-gray-900 text-white">
+        <Footer /> {/* This is your custom Footer component */}
+      </footer>
     </div>
   );
 }

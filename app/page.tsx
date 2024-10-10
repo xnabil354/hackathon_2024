@@ -1,10 +1,17 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Footer from '../components/Footer'; // Import Footer
+import { useRouter } from "next/navigation";
+import Footer from "../components/Footer"; // Import Footer
 
 const Home = () => {
   const [activePlatform, setActivePlatform] = useState<string | null>(null);
+  const router = useRouter(); // Gunakan router
+
+  const handleStartClick = () => {
+    setActivePlatform(null);
+    router.push("/platform"); // Navigasi ke halaman /platform
+  };
 
   return (
     <main>
@@ -22,7 +29,7 @@ const Home = () => {
           </h1>
           <div className="mt-4 flex items-center">
             <button
-              onClick={() => setActivePlatform(null)} // Reset platform saat mengklik Mulai
+              onClick={handleStartClick} // Navigasi ke halaman platform
               className="px-6 py-2 bg-lime-400 text-gray-800 font-semibold rounded mr-4"
             >
               Mulai Sekarang
@@ -36,16 +43,23 @@ const Home = () => {
           Perkenalkan tempat wisata anda lebih luas dengan kami
         </h2>
         <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-          Kami membantu Anda memaksimalkan potensi pariwisata melalui strategi pemasaran media sosial yang tepat. Pelajari cara membuat konten menarik dan efektif di platform yang kami sediakan.
+          Kami membantu Anda memaksimalkan potensi pariwisata melalui strategi
+          pemasaran media sosial yang tepat. Pelajari cara membuat konten
+          menarik dan efektif di platform yang kami sediakan.
         </p>
 
         <div className="flex flex-wrap justify-center gap-8">
           {/* Tiktok Card */}
           <div
             className="text-center w-full sm:w-64 transform transition-transform hover:scale-105 cursor-pointer"
-            onClick={() => setActivePlatform('tiktok')}
+            onClick={() => setActivePlatform("tiktok")}
           >
-            <div className="relative w-full h-40 bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div
+              className="relative w-full h-40 bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-4 border-transparent bg-clip-padding rounded-lg"
+              style={{
+                borderImage: "linear-gradient(to right, #ff7e5f, #feb47b) 1",
+              }}
+            >
               <Image
                 src="https://i.top4top.io/p_32040cdcl2.jpeg"
                 alt="Tiktok platform preview"
@@ -63,9 +77,14 @@ const Home = () => {
           {/* Instagram Card */}
           <div
             className="text-center w-full sm:w-64 transform transition-transform hover:scale-105 cursor-pointer"
-            onClick={() => setActivePlatform('instagram')}
+            onClick={() => setActivePlatform("instagram")}
           >
-            <div className="relative w-full h-40 bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div
+              className="relative w-full h-40 bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-4 border-transparent bg-clip-padding rounded-lg"
+              style={{
+                borderImage: "linear-gradient(to right, #43cea2, #185a9d) 1",
+              }}
+            >
               <Image
                 src="https://h.top4top.io/p_3204969bs1.png"
                 alt="Instagram platform preview"
@@ -83,9 +102,14 @@ const Home = () => {
           {/* Youtube Card */}
           <div
             className="text-center w-full sm:w-64 transform transition-transform hover:scale-105 cursor-pointer"
-            onClick={() => setActivePlatform('youtube')}
+            onClick={() => setActivePlatform("youtube")}
           >
-            <div className="relative w-full h-40 bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div
+              className="relative w-full h-40 bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-4 border-transparent bg-clip-padding rounded-lg"
+              style={{
+                borderImage: "linear-gradient(to right, #fc00ff, #00dbde) 1",
+              }}
+            >
               <Image
                 src="https://k.top4top.io/p_3204xnrq91.jpeg"
                 alt="Youtube platform preview"
@@ -102,7 +126,7 @@ const Home = () => {
         </div>
 
         {/* Video Section */}
-        {activePlatform === 'tiktok' && (
+        {activePlatform === "tiktok" && (
           <div className="mt-12">
             <h3 className="text-2xl font-bold mb-4">Tonton Tutorial TikTok</h3>
             <blockquote
@@ -189,28 +213,71 @@ const Home = () => {
           </div>
         )}
 
-{activePlatform === 'youtube' && (
-  <div className="mt-12">
-    <h3 className="text-2xl font-bold mb-4">Tonton Tutorial YouTube</h3>
-    <div className="relative" style={{ paddingBottom: "56.25%", height: 0, overflow: "hidden", position: "relative" }}>
-      <iframe
-        src="https://www.youtube.com/embed/1j8nG_StTLI" // Hilangkan autoplay=1
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%"
-        }}
-      ></iframe>
-    </div>
-  </div>
-)}
+        {activePlatform === "instagram" && (
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold mb-4">
+              Tonton Tutorial Instagram
+            </h3>
+            <blockquote
+              cite="https://www.youtube.com/embed/c0Eyifw5to8?si=kvaZ_ORg8OhHqJF9"
+              className="instagram-embed"
+              style={{ maxWidth: "100%", overflow: "hidden" }}
+            >
+              <div
+                className="relative"
+                style={{ paddingBottom: "56.25%", height: 0 }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/c0Eyifw5to8?controls=1&enablejsapi=1" // No autoplay, with controls enabled
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                ></iframe>
+              </div>
+            </blockquote>
+          </div>
+        )}
 
+        {activePlatform === "youtube" && (
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold mb-4">Tonton Tutorial YouTube</h3>
+            <blockquote
+              cite="https://www.youtube.com/embed/1j8nG_StTLI?si=1UMqz7K_3Sfw1Q4e"
+              className="youtube-embed"
+              style={{ maxWidth: "100%", overflow: "hidden" }}
+            >
+              <div
+                className="relative"
+                style={{ paddingBottom: "56.25%", height: 0 }}
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/1j8nG_StTLI?controls=1&enablejsapi=1" // No autoplay, with controls
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                ></iframe>
+              </div>
+            </blockquote>
+          </div>
+        )}
       </section>
 
       {/* Section for Media Sosial Penting */}
@@ -220,7 +287,13 @@ const Home = () => {
             Mengapa Media Sosial Penting?
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Di era digital ini, media sosial telah menjadi alat yang paling kuat untuk mempromosikan destinasi wisata. Platform seperti Tiktok, Instagram, dan Youtube memungkinkan Anda untuk terhubung langsung dengan wisatawan, membangun komunitas yang tertarik dengan tempat wisata Anda, dan memperluas jangkauan promosi Anda secara global. Melalui pelatihan kami, Anda akan belajar cara memanfaatkan setiap platform untuk menghasilkan konten yang kreatif dan tepat sasaran.
+            Di era digital ini, media sosial telah menjadi alat yang paling kuat
+            untuk mempromosikan destinasi wisata. Platform seperti Tiktok,
+            Instagram, dan Youtube memungkinkan Anda untuk terhubung langsung
+            dengan wisatawan, membangun komunitas yang tertarik dengan tempat
+            wisata Anda, dan memperluas jangkauan promosi Anda secara global.
+            Melalui pelatihan kami, Anda akan belajar cara memanfaatkan setiap
+            platform untuk menghasilkan konten yang kreatif dan tepat sasaran.
           </p>
 
           <div className="w-full h-1 bg-gradient-to-r from-blue-400 to-purple-600 mb-8"></div>
@@ -239,11 +312,14 @@ const Home = () => {
           <div className="bg-white rounded-lg shadow-lg p-8 md:w-1/2 flex flex-col justify-center transform transition-transform hover:scale-105">
             <h3 className="text-xl font-bold mb-4 text-gray-800">Visi:</h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Membangun komunitas digital yang berdaya untuk mempromosikan potensi pariwisata lokal secara efektif melalui media sosial.
+              Membangun komunitas digital yang berdaya untuk mempromosikan
+              potensi pariwisata lokal secara efektif melalui media sosial.
             </p>
             <h3 className="text-xl font-bold mb-4 text-gray-800">Misi:</h3>
             <p className="text-gray-600 leading-relaxed">
-              Memberikan panduan praktis dan langkah-langkah terperinci bagi masyarakat yang ingin mempromosikan pariwisata melalui platform media sosial seperti TikTok, Instagram, dan YouTube.
+              Memberikan panduan praktis dan langkah-langkah terperinci bagi
+              masyarakat yang ingin mempromosikan pariwisata melalui platform
+              media sosial seperti TikTok, Instagram, dan YouTube.
             </p>
           </div>
 
