@@ -58,7 +58,7 @@ const YoutubePage = () => {
             <div className="w-1/3">
               <div className="relative w-full h-40">
                 <Image
-                  src="https://d.top4top.io/p_32046mnje1.jpeg" 
+                  src="https://h.top4top.io/p_3204max9b1.png" 
                   alt="Membuat Akun Youtube"
                   layout="fill"
                   className="object-contain rounded-lg"
@@ -117,7 +117,7 @@ const YoutubePage = () => {
             <div className="w-1/3">
               <div className="relative w-full h-40">
                 <Image
-                  src="https://f.top4top.io/p_3204yskeg1.jpeg" 
+                  src="https://i.top4top.io/p_32044oony2.png" 
                   alt="Membuat Profile Menarik"
                   layout="fill"
                   className="object-contain rounded-lg"
@@ -146,7 +146,7 @@ const YoutubePage = () => {
             <div className="w-1/3">
               <div className="relative w-full h-40">
                 <Image
-                  src="https://e.top4top.io/p_32040ludu1.jpeg" 
+                  src="https://j.top4top.io/p_320473yz33.png" 
                   alt="Membuat Konten Menarik"
                   layout="fill"
                   className="object-contain rounded-lg"

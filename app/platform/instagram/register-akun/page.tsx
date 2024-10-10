@@ -107,8 +107,8 @@ const RegisterAkunPage = () => {
         </div>
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
-        <p className="text-gray-600 mb-4">{step.description}</p>
+        <h2 className="ml-10 text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
+        <p className="ml-10 text-gray-600 mb-4">{step.description}</p>
       </div>
     </motion.div>
   ))}

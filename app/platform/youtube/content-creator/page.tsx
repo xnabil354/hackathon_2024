@@ -31,7 +31,7 @@ export default function ContentCreatorPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 15000); // Change slide every 5 seconds
     return () => clearInterval(interval);
   }, []);
 
@@ -48,7 +48,7 @@ export default function ContentCreatorPage() {
           <FontAwesomeIcon icon={faArrowLeft} className="w-6 h-6" />
         </button>
 
-        <div className="relative w-full max-w-6xl h-auto md:h-96 overflow-hidden flex items-center justify-between flex-col md:flex-row bg-white shadow-xl rounded-lg border-8 border-gray-300 p-8">
+        <div className="relative w-full max-w-6xl h-auto min-h-[24rem] overflow-hidden flex items-center justify-between flex-col md:flex-row bg-white shadow-xl rounded-lg border-8 border-gray-300 p-8">
   {slides.map((slide, index) => (
     <AnimatePresence key={index}>
       {currentSlide === index && (
@@ -62,16 +62,16 @@ export default function ContentCreatorPage() {
         >
           {/* Text section */}
           <div className="w-full md:w-1/2 p-4">
-                  <h2 className="text-gray-900 text-lg md:text-2xl font-semibold mb-4">
-                    {slide.text}
-                  </h2>
-                  <p className="text-gray-700 text-base md:text-lg">
-                    {slide.additionalText}
-                  </p>
-                </div>
+            <h2 className="text-gray-900 text-lg md:text-2xl font-semibold mb-4">
+              {slide.text}
+            </h2>
+            <p className="text-gray-700 text-base md:text-lg">
+              {slide.additionalText}
+            </p>
+          </div>
 
           {/* Image section */}
-          <div className="md:w-1/2 h-80 relative">
+          <div className="md:w-1/2 h-auto relative">
             <img
               src={slide.image}
               alt={`Slide ${index + 1}`}
@@ -83,6 +83,7 @@ export default function ContentCreatorPage() {
     </AnimatePresence>
   ))}
 </div>
+
 
 
         {/* Slide navigation */}

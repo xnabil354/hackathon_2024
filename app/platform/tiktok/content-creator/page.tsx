@@ -66,14 +66,14 @@ export default function ContentCreatorPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 15000); // Change slide every 5 seconds
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Content Section */}
-      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative mb-14 mt-14">
+      <div className="flex-grow w-full h-full flex items-center justify-center bg-gray-100 relative">
         {/* Back Button */}
         <button
           onClick={handleBack}
@@ -118,6 +118,7 @@ export default function ContentCreatorPage() {
     </AnimatePresence>
   ))}
 </div>
+
 
 
         {/* Slide navigation */}

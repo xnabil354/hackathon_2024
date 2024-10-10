@@ -11,15 +11,28 @@ import Footer from '../../../../components/Footer'
 const steps = [
   {
     id: 1,
-    title: 'Profile Awal',
-    imageSrc: 'https://d.top4top.io/p_3204sgr2g1.png',
-    description: `Langkah 6: Profil Akun Youtube...`,
+    title: 'Mengakses Pengaturan Channel',
+    imageSrc: 'https://b.top4top.io/p_32044whqt1.png',
+    description: `Mengakses Pengaturan Channel
+Tampilan Halaman Akun Setelah berhasil membuat channel, Anda dapat mengakses pengaturan channel dengan memilih ikon profil di kanan atas dan klik "Edit channel".
+Mengatur Nama dan Handle Masukkan nama dan handle yang menarik dan sesuai dengan tema pariwisata. Pastikan nama mudah diingat, berhubungan dengan pariwisata, dan mencerminkan identitas unik dari channel Anda.
+Menambahkan URL Channel Pastikan URL channel sudah dipersonalisasi, misalnya menggunakan nama destinasi atau tema wisata yang Anda fokuskan, sehingga lebih mudah dikenali oleh penonton.`,
   },
   {
     id: 2,
-    title: 'Edit Profile',
-    imageSrc: 'https://f.top4top.io/p_32047i7qj2.png',
-    description: `Langkah 7: Mengedit Profil...`,
+    title: 'Membuat Profile Akun Pariwisata Yang Menarik',
+    imageSrc: 'https://c.top4top.io/p_3204z410y2.png',
+    description: `Tips Membuat Profil Akun Pariwisata yang Menarik
+Gunakan Nama Deskriptif
+Nama channel harus mencerminkan fokus pariwisata, seperti "Explore Bali" atau "Wanderlust Indonesia", agar audiens langsung memahami niche Anda.
+Pilih Foto Profil yang Representatif
+Gunakan gambar ikon pariwisata khas, seperti Borobudur atau pantai di Bali, yang mencerminkan destinasi utama channel Anda.
+Tulis Deskripsi yang Menginspirasi
+Deskripsi singkat seperti: "Selamat datang di channel [Nama Channel], tempat kami menjelajahi destinasi tersembunyi dan berbagi tips serta pengalaman lokal."
+Gunakan Handle yang Mudah Diingat
+Pilih handle unik seperti @ExploreBali atau @DiscoverIndonesia untuk memudahkan pencarian dan berbagi.
+Atur Privasi Langganan
+Tampilkan langganan publik, terutama jika mengikuti channel pariwisata atau travel influencer yang relevan.`,
   }
 ];
 
@@ -49,7 +62,7 @@ const MembuatProfilePage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Cara Membuat Profile Tiktok yang Menarik
+        Cara Membuat Profile Youtube yang Menarik
       </motion.h1>
 
       {/* Step-by-step guide */}
@@ -72,8 +85,8 @@ const MembuatProfilePage = () => {
               </div>
             </div>
             <div className="w-full md:w-1/2 text-center md:text-left">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
-              <p className="text-gray-600 mb-4">{step.description}</p>
+              <h2 className="ml-14 text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
+              <p className="ml-14 text-gray-600 mb-4">{step.description}</p>
             </div>
           </motion.div>
         ))}

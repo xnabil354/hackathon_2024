@@ -11,33 +11,25 @@ import Footer from '../../../../components/Footer'
 const steps = [
   {
     id: 1,
-    title: 'Mendaftar Akun Youtube',
-    imageSrc: 'https://d.top4top.io/p_3204713nn1.png',
-    description: `Pada menu utama pendaftaran, Anda akan menemukan berbagai opsi untuk mendaftar akun Youtube...`,
+    title: `Membuka YouTube
+Tampilan Halaman Pendaftaran Pada halaman awal YouTube, Anda perlu memilih "Sign in" untuk memulai proses pendaftaran.`,
+    imageSrc: 'https://h.top4top.io/p_3204max9b1.png',
+    description: `Memasukkan Email atau Nomor Telepon Masukkan alamat email atau nomor telepon yang terhubung dengan akun Google Anda. Jika belum memiliki akun, klik "Create account" untuk membuatnya.
+Memasukkan Kata Sandi Setelah memasukkan email, Anda akan diminta untuk memasukkan kata sandi akun Google Anda. Pastikan kata sandi yang dimasukkan benar, lalu klik "Next".`,
   },
   {
     id: 2,
-    title: 'Pilih Akun Google',
-    imageSrc: 'https://e.top4top.io/p_3204ema9z2.png',
-    description: `Langkah 2: Memilih Akun Google...`,
+    title: `Membuka Youtube`,
+    imageSrc: 'https://i.top4top.io/p_32044oony2.png',
+    description: `Masuk ke Akun YouTube
+Tampilan Halaman Akun Setelah berhasil masuk, Anda akan diarahkan ke halaman utama YouTube. Pilih ikon profil di sudut kanan atas, lalu klik "Create a channel".`,
   },
   {
     id: 3,
-    title: 'Konfirmasi Masuk',
-    imageSrc: 'https://f.top4top.io/p_320487lvf3.png',
-    description: `Langkah 3: Masuk ke Youtube...`,
-  },
-  {
-    id: 4,
-    title: 'Isi Data Ulang Tahun Anda',
-    imageSrc: 'https://g.top4top.io/p_3204f277d4.png',
-    description: `Langkah 4: Mengisi Tanggal Lahir...`,
-  },
-  {
-    id: 5,
-    title: 'Create Nickname/Username',
-    imageSrc: 'https://h.top4top.io/p_320407mob5.png',
-    description: `Langkah 5: Membuat Nama Panggilan...`,
+    title: `Menyesuaikan Profile Channel`,
+    imageSrc: 'https://j.top4top.io/p_320473yz33.png',
+    description: `Menyesuaikan Profil Channel
+Pengaturan Profil Anda akan diminta untuk memasukkan nama channel yang diinginkan dan memilih foto profil. Pastikan nama dan foto sesuai dengan tema channel yang ingin Anda buat. Klik "Create Channel" untuk menyelesaikan proses ini.`,
   }
 ];
 
@@ -58,7 +50,7 @@ const RegisterAkunPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Tutorial Mendaftar Akun Tiktok
+        Tutorial Mendaftar Akun Youtube
       </motion.h1>
   {steps.map((step, index) => (
     <motion.div
@@ -79,8 +71,8 @@ const RegisterAkunPage = () => {
         </div>
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
-        <p className="text-gray-600 mb-4">{step.description}</p>
+        <h2 className="ml-10 text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
+        <p className="ml-10 text-gray-600 mb-4">{step.description}</p>
       </div>
     </motion.div>
   ))}

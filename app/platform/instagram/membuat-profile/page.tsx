@@ -12,7 +12,7 @@ const steps = [
   {
     id: 1,
     title: 'Profile Awal',
-    imageSrc: 'https://d.top4top.io/p_3204sgr2g1.png',
+    imageSrc: 'https://g.top4top.io/p_3204r7ro61.png',
     description: `Profil: Lucid Worlds
 Tampilan Profil: Menampilkan informasi dasar, jumlah posting, pengikut, dan yang diikuti.
 Informasi: Nama: Lucid Worlds, Username: lucidworlds.co.
@@ -29,19 +29,23 @@ Konten Menarik: Pastikan konten relevan dan menarik.`,
   {
     id: 2,
     title: 'Edit Profile',
-    imageSrc: 'https://f.top4top.io/p_32047i7qj2.png',
-    description: `Profil: Lucid Worlds
-Tampilan Profil: Menampilkan informasi dasar, jumlah posting, pengikut, dan yang diikuti.
-Informasi: Nama: Lucid Worlds, Username: lucidworlds.co.
-Bio: "Clothing (Brand). Born To Choose." Tautan ke Shopee.
+    imageSrc: 'https://h.top4top.io/p_3204p4fns2.png',
+    description: `Tampilan Halaman Edit Profil
+Klik "Edit picture or avatar" untuk mengganti foto profil.
+Informasi Profil
+Nama: Lucid Worlds
+Username: lucidworlds.co
+Pronouns: Pilihan untuk menambahkan kata ganti (opsional).
+Bio
+Deskripsi: "Born To Choose." dan "Stay lit with us" dengan hashtag #bornwdreams. Tautan untuk belanja produk.
 Tips untuk Profil Akun Promosi Pariwisata
-Foto Profil Menarik: Gambar yang mewakili tema pariwisata.
-Username Unik: Singkat dan mudah diingat.
-Bio Informatif: Menjelaskan konten, misalnya, "Menjelajahi keindahan alam Indonesia."
-Call to Action: Ajak pengunjung untuk mengikuti atau mengunjungi situs Anda.
-Hashtag Relevan: Tambahkan hashtag untuk visibilitas.
-Perbarui Profil: Ganti foto dan bio secara berkala.
-Konten Menarik: Pastikan konten relevan dan menarik.`,
+Foto Profil Menarik: Pilih gambar yang mencerminkan tema pariwisata.
+Username Jelas: Username singkat dan mudah diingat.
+Bio Menarik: Tulis bio yang menggambarkan konten, misalnya, "Menjelajahi keindahan alam Indonesia."
+Sertakan Call to Action: Ajak pengunjung untuk mengikuti akun atau mengunjungi situs Anda.
+Gunakan Hashtag Relevan: Tambahkan hashtag untuk meningkatkan visibilitas.
+Perbarui Secara Berkala: Ganti foto dan bio sesuai konten terbaru.
+Tautan Penting: Sertakan tautan yang relevan untuk informasi lebih lanjut.`,
   }
 ];
 
@@ -94,8 +98,8 @@ const MembuatProfilePage = () => {
               </div>
             </div>
             <div className="w-full md:w-1/2 text-center md:text-left">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
-              <p className="text-gray-600 mb-4">{step.description}</p>
+              <h2 className="ml-10 text-xl font-semibold text-gray-800 mb-4">{step.title}</h2>
+              <p className="ml-10 text-gray-600 mb-4">{step.description}</p>
             </div>
           </motion.div>
         ))}
