@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Footer from "../components/Footer"; // Import Footer
 
 const Home = () => {
   const [activePlatform, setActivePlatform] = useState<string | null>(null);
@@ -14,6 +13,7 @@ const Home = () => {
   };
 
   return (
+    
     <main>
       <section className="relative">
   <Image
@@ -346,7 +346,6 @@ const Home = () => {
       </section>
 
       {/* Panggil Footer */}
-      <Footer />
     </main>
   );
 };

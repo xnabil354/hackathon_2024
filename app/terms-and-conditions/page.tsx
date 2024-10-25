@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer'; // Pastikan path sesuai dengan lokasi footer.tsx
 
 const TermsAndConditionsPage = () => {
   return (
@@ -17,7 +16,6 @@ const TermsAndConditionsPage = () => {
           </ul>
         </div>
       </div>
-      <Footer /> {/* Panggil Footer di bagian bawah */}
     </div>
   );
 };

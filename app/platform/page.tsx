@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Footer from '../../components/Footer'; // Import Footer
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome for Icons
@@ -139,8 +138,7 @@ const PlatformPage = () => {
         </div>
       </section>
 
-      {/* Panggil Footer */}
-      <Footer />
+  
     </main>
   );
 };

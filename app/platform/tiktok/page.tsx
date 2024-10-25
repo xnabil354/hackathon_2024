@@ -4,7 +4,6 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // Import useRouter for navigation
 import { motion } from 'framer-motion';
-import Footer from '../../../components/Footer'; // Import Footer
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Import Back Arrow Icon
 
@@ -175,7 +174,6 @@ const TiktokPage = () => {
       </section>
 
       {/* Panggil Footer */}
-      <Footer />
     </main>
   );
 };

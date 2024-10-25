@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer'; // Pastikan path sesuai dengan lokasi footer.tsx
 
 const AboutUsPage = () => {
   return (
@@ -16,7 +15,6 @@ const AboutUsPage = () => {
           </div>
         </div>
       </div>
-      <Footer /> {/* Panggil Footer di bagian bawah */}
     </div>
   );
 };

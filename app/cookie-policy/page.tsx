@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer'; // Pastikan path sesuai dengan lokasi footer.tsx
 
 const CookiePolicyPage = () => {
   return (
@@ -24,7 +23,6 @@ const CookiePolicyPage = () => {
           </ul>
         </div>
       </div>
-      <Footer /> {/* Panggil Footer di bagian bawah */}
     </div>
   );
 };

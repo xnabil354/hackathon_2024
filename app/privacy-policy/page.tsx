@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer'; // Pastikan path sesuai dengan lokasi footer.tsx
 
 const PrivacyPolicyPage = () => {
   return (
@@ -11,7 +10,6 @@ const PrivacyPolicyPage = () => {
           <p className="text-lg text-white">Jika kebijakan ini berubah di masa depan, kami akan memberi tahu pengguna dan memperbaruinya di sini.</p>
         </div>
       </div>
-      <Footer /> {/* Panggil Footer di bagian bawah */}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import './globals.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
       <HeadContent />
       <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

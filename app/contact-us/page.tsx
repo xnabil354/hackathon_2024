@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer'; // Pastikan path sesuai
 
 const ContactUsPage = () => {
   return (
@@ -37,7 +36,6 @@ const ContactUsPage = () => {
       </div>
 
       {/* Footer */}
-      <Footer />
     </div>
   );
 };
