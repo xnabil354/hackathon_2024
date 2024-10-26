@@ -19,7 +19,7 @@ export default function CheckoutPage() {
   // Informasi produk
   const product = {
     image: "https://d.top4top.io/p_322037btl1.png", // Ganti dengan URL gambar produk asli
-    title: "Strategi Digital Marketing Melalui Tiktok ADS",
+    title: "Course Tiktok Marketing - Viral & Trending",
     category: "course",
     tipe: "tiktok",
     price: 149000, // Harga asli

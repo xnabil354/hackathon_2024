@@ -18,8 +18,8 @@ export default function CheckoutPage() {
 
   // Informasi produk
   const product = {
-    image: "https://d.top4top.io/p_322037btl1.png", // Ganti dengan URL gambar produk asli
-    title: "Strategi Digital Marketing Melalui Instagram ADS",
+    image: "https://d.top4top.io/p_32205bolx1.png", // Ganti dengan URL gambar produk asli
+    title: "Instagram Marketing Mastery",
     category: "course",
     tipe: "instagram",
     price: 149000, // Harga asli

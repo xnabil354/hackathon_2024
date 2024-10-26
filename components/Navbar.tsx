@@ -63,8 +63,8 @@ export default function Navbar() {
           Platform
           <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out origin-left"></span>
         </Link>
-        <Link href="/paket" className="relative group text-lg font-semibold text-gray-700 transition-all duration-300 ease-in-out hover:text-blue-500">
-          Paket
+        <Link href="/pricing" className="relative group text-lg font-semibold text-gray-700 transition-all duration-300 ease-in-out hover:text-blue-500">
+          Pricing
           <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-in-out origin-left"></span>
         </Link>
       </nav>
@@ -80,6 +80,9 @@ export default function Navbar() {
           </Link>
           <Link href="/platform" className="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out">
             Platform
+          </Link>
+          <Link href="/pricing" className="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out">
+            Pricing
           </Link>
         </nav>
       )}

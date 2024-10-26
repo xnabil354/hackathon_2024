@@ -1,50 +1,105 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Home = () => {
   const [activePlatform, setActivePlatform] = useState<string | null>(null);
-  const router = useRouter(); // Gunakan router
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const router = useRouter();
 
   const handleStartClick = () => {
     setActivePlatform(null);
-    router.push("/platform"); // Navigasi ke halaman /platform
+    router.push("/platform");
   };
 
+  // Data testimonial
+  const testimonials = [
+    {
+      id: 1,
+      name: "Pak Febri",
+      role: "Pemilik Wisata Desa Leuwimalang",
+      image: "https://k.top4top.io/p_3220t6q5j2.png",
+      banner: "https://j.top4top.io/p_3220mn75u1.png", // Banner wisata desa
+      text: "Setelah mengikuti pelatihan ini, wisata Curug kami menjadi lebih dikenal. Pengunjung meningkat drastis berkat strategi media sosial yang kami terapkan. Terima kasih atas bimbingannya!"
+    },
+    {
+      id: 2,
+      name: "Bu Sarah",
+      role: "Pengelola Wisata Pantai Indah",
+      image: "/api/placeholder/80/80",
+      banner: "https://e.top4top.io/p_3204969bs1.png", // Banner pantai
+      text: "Platform ini sangat membantu kami dalam mempromosikan wisata pantai. Sekarang kami lebih percaya diri dalam membuat konten yang menarik di sosial media."
+    },
+    {
+      id: 3,
+      name: "Pak Ahmad",
+      role: "Koordinator Desa Wisata",
+      image: "/api/placeholder/80/80",
+      banner: "https://h.top4top.io/p_3204969bs1.png", // Banner desa wisata
+      text: "Berkat panduan yang diberikan, desa wisata kami sekarang memiliki presence yang kuat di sosial media. Pengunjung meningkat signifikan!"
+    },
+    {
+      id: 4,
+      name: "Ibu Rina",
+      role: "Pengusaha Homestay",
+      image: "/api/placeholder/80/80",
+      banner: "https://l.top4top.io/p_3204rmp321.jpg", // Banner homestay
+      text: "Awalnya bingung bagaimana memasarkan homestay di era digital. Setelah mengikuti program ini, okupansi homestay kami meningkat pesat."
+    },
+    {
+      id: 5,
+      name: "Pak Dedi",
+      role: "Pengelola Wisata Gunung",
+      image: "/api/placeholder/80/80",
+      banner: "https://k.top4top.io/p_3204xnrq91.jpeg", // Banner gunung
+      text: "Sangat terbantu dengan materi pelatihan yang lengkap. Sekarang kami bisa membuat konten yang menarik dan viral di TikTok dan Instagram."
+    }
+  ];
+
+  // Auto slide testimonial
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => 
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 10000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    
     <main>
       <section className="relative">
-  <Image
-    src="https://c.top4top.io/p_3203xbm5l1.jpg"
-    alt="Background image"
-    width={1920}
-    height={1200}
-    className="w-full h-96 object-cover"
-  />
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-    <h1
-      className="text-4xl font-bold text-center animate-fade-in-up"
-      style={{
-        textShadow: "2px 2px 8px rgba(0, 0, 0, 0.6)", // Memberi efek bayangan teks
-      }}
-    >
-      Belajar Sosial Media Marketing Pariwisata
-    </h1>
-    <div className="mt-4 flex items-center">
-      <button
-        onClick={handleStartClick}
-        className="px-8 py-3 bg-gradient-to-r from-green-400 to-lime-500 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 active:scale-95"
-        style={{
-          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)", // Shadow lebih dramatis
-        }}
-      >
-        Mulai Sekarang
-      </button>
-    </div>
-  </div>
-</section>
+        <Image
+          src="https://c.top4top.io/p_3203xbm5l1.jpg"
+          alt="Background image"
+          width={1920}
+          height={1200}
+          className="w-full h-96 object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <h1
+            className="text-4xl font-bold text-center animate-fade-in-up"
+            style={{
+              textShadow: "2px 2px 8px rgba(0, 0, 0, 0.6)",
+            }}
+          >
+            Belajar Sosial Media Marketing Pariwisata
+          </h1>
+          <div className="mt-4 flex items-center">
+            <button
+              onClick={handleStartClick}
+              className="px-8 py-3 bg-gradient-to-r from-green-400 to-lime-500 text-white font-semibold rounded-lg shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 active:scale-95"
+              style={{
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              Mulai Sekarang
+            </button>
+          </div>
+        </div>
+      </section>
 
 
       <section className="p-8 bg-blue-50 text-center">
@@ -310,6 +365,150 @@ const Home = () => {
           <hr className="border-t-2 border-gray-300 opacity-50 my-10 mx-auto w-1/3 transition-transform hover:scale-105" />
         </div>
       </section>
+
+      {/* Testimonial Section */}
+<section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+  <div className="max-w-6xl mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-12 relative">
+      Testimoni Klien Kami
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+    </h2>
+
+    {/* Testimonial Card */}
+    <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-500 hover:shadow-xl">
+      {/* Banner Image - Now unique for each testimonial */}
+      <div className="relative h-56 w-full">
+        <Image
+          src={testimonials[currentTestimonial].banner}
+          alt={`Banner ${testimonials[currentTestimonial].name}`}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-white"></div>
+      </div>
+
+      <div className="p-8 -mt-24 relative">
+        {/* Profile Image with Enhanced Styling */}
+        <div className="relative w-32 h-32 mx-auto mb-6">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full animate-pulse"></div>
+          <Image
+            src={testimonials[currentTestimonial].image}
+            alt={testimonials[currentTestimonial].name}
+            fill
+            className="rounded-full object-cover border-4 border-white shadow-xl ring-4 ring-indigo-50 relative z-10"
+          />
+          <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full flex items-center justify-center z-20 shadow-lg">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+        </div>
+
+        {/* Testimonial Content with Enhanced Styling */}
+        <div className="text-center max-w-2xl mx-auto">
+          <div className="mb-6 relative">
+            {/* Decorative Quotes */}
+            <div className="absolute -top-6 -left-4 text-6xl text-indigo-200 opacity-50"></div>
+            <div className="absolute -bottom-6 -right-4 text-6xl text-indigo-200 opacity-50"></div>
+            
+            <p className="text-gray-600 text-lg italic leading-relaxed relative z-10 px-8">
+              {testimonials[currentTestimonial].text}
+            </p>
+          </div>
+          
+          <div className="space-y-2">
+            <h4 className="font-bold text-gray-800 text-xl">
+              {testimonials[currentTestimonial].name}
+            </h4>
+            <p className="text-indigo-600 font-medium">
+              {testimonials[currentTestimonial].role}
+            </p>
+          </div>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-1/2 left-4 transform -translate-y-1/2">
+          <svg className="w-24 h-24 text-indigo-50" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+        </div>
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2 rotate-180">
+          <svg className="w-24 h-24 text-indigo-50" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {/* Enhanced Navigation Dots */}
+    <div className="flex justify-center mt-8 gap-3">
+      {testimonials.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentTestimonial(index)}
+          className={`transform transition-all duration-300 ${
+            index === currentTestimonial 
+              ? 'w-12 h-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full scale-110' 
+              : 'w-3 h-3 bg-gray-300 rounded-full hover:bg-indigo-300 hover:scale-105'
+          }`}
+          aria-label={`Go to testimonial ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<section className="p-8 bg-gray-50">
+  <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">Manfaat Digital Marketing untuk Bisnis:</h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {/* First Benefit */}
+    <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+      <div className="absolute top-0 left-0 m-4 flex space-x-2">
+        <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+        <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+        <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+      </div>
+      <div className="border border-dotted border-blue-400 rounded-md p-4 hover:border-solid hover:border-blue-600 transition-all duration-300">
+        <h3 className="text-2xl font-bold text-gray-800 mb-2">Lebih Mudah Dikenal Banyak Orang</h3>
+        <p className="text-gray-600">
+          Digital marketing membantu bisnis Anda lebih dikenal di berbagai platform online, seperti media sosial dan mesin pencari.
+        </p>
+      </div>
+    </div>
+
+    {/* Second Benefit */}
+    <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+      <div className="absolute top-0 left-0 m-4 flex space-x-2">
+        <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+        <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+        <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+      </div>
+      <div className="border border-dotted border-pink-400 rounded-md p-4 hover:border-solid hover:border-pink-600 transition-all duration-300">
+        <h3 className="text-2xl font-bold text-gray-800 mb-2">Biaya Lebih Terjangkau</h3>
+        <p className="text-gray-600">
+          Dibandingkan dengan iklan di TV atau radio, digital marketing memungkinkan Anda mengatur budget sesuai kebutuhan.
+        </p>
+      </div>
+    </div>
+
+    {/* Third Benefit */}
+    <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+      <div className="absolute top-0 left-0 m-4 flex space-x-2">
+        <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+        <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+        <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+      </div>
+      <div className="border border-dotted border-purple-400 rounded-md p-4 hover:border-solid hover:border-purple-600 transition-all duration-300">
+        <h3 className="text-2xl font-bold text-gray-800 mb-2">Bisa Menargetkan Pelanggan yang Tepat</h3>
+        <p className="text-gray-600">
+          Digital marketing memungkinkan Anda mengarahkan iklan ke orang-orang yang sesuai, berdasarkan minat, lokasi, usia, dan kebiasaan mereka di internet.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Section for Visi Misi */}
       <section id="visi-misi" className="p-8 bg-blue-50">

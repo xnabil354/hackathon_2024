@@ -1,9 +1,11 @@
 "use client";
+
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faLock } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios'; // Import axios untuk API request
 
 const slides = [
   {
@@ -64,47 +66,84 @@ Tinjau konten yang telah mendapatkan banyak interaksi dan perhatian di Instagram
   },
 ];
 
-const LockedContent = ({ onSubscribe }: { onSubscribe: () => void }) => (
-  <motion.div
-    className="absolute inset-0 bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center z-10"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-  >
+const LockedContent = ({ onUnlock, onSubscribe }: { onUnlock: () => void; onSubscribe: () => void }) => {
+  const [licenseKey, setLicenseKey] = useState('');
+
+  const validateLicenseKey = async () => {
+    try {
+      const response = await axios.post('/api/validate-license', { licenseKey });
+
+      if (response.data.valid) {
+        onUnlock(); // Unlock content if license key is valid
+      } else {
+        alert('License Key tidak valid!');
+      }
+    } catch (error) {
+      console.error('Error validating license key:', error);
+    }
+  };
+
+  return (
     <motion.div
-      initial={{ scale: 0.8, y: 20 }}
-      animate={{ scale: 1, y: 0 }}
-      exit={{ scale: 0.8, y: 20 }}
-      className="text-center p-8"
+      className="absolute inset-0 bg-black/80 backdrop-blur-md flex flex-col items-center justify-center z-10 px-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <motion.div
-        animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
-        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+        initial={{ scale: 0.9, y: 10 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, y: 10 }}
+        className="text-center p-8 bg-white rounded-lg shadow-lg space-y-6"
       >
-        <FontAwesomeIcon icon={faLock} className="text-6xl text-yellow-400 mb-4" />
+        <FontAwesomeIcon icon={faLock} className="text-6xl text-yellow-400 mb-2" />
+        <h3 className="text-2xl font-bold text-gray-800">Konten Terkunci</h3>
+        <p className="text-gray-600">Masukkan License Key atau Berlangganan untuk membuka konten.</p>
+
+        <div className="w-full space-y-4">
+          <input
+            type="text"
+            value={licenseKey}
+            onChange={(e) => setLicenseKey(e.target.value)}
+            placeholder="Masukkan License Key"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <button
+            onClick={validateLicenseKey}
+            className="w-full bg-yellow-500 text-white px-4 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all"
+          >
+            Buka Konten
+          </button>
+        </div>
+
+        <div className="mt-4">
+          <button
+            onClick={onSubscribe}
+            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transform hover:scale-105 transition-all shadow-lg hover:shadow-yellow-500/50"
+          >
+            Berlangganan Sekarang
+          </button>
+        </div>
       </motion.div>
-      <h3 className="text-2xl font-bold text-white mb-4">Konten Premium</h3>
-      <p className="text-gray-300 mb-6">Berlangganan untuk membuka akses ke semua konten eksklusif</p>
-      <button
-        onClick={onSubscribe}
-        className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-8 py-3 rounded-full font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-500/50"
-      >
-        Berlangganan Sekarang
-      </button>
     </motion.div>
-  </motion.div>
-);
+  );
+};
 
 export default function ContentCreatorPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isUnlocked, setIsUnlocked] = useState(false); // Track if content is unlocked
   const router = useRouter();
 
   const handleBack = () => {
     router.back();
   };
 
+  const handleUnlock = () => {
+    setIsUnlocked(true); // Unlock all slides when called
+  };
+
   const handleSubscribe = () => {
-    router.push('/paket/checkout/instagram');
+    router.push('/paket/checkout/instagram'); // Navigate to checkout page
   };
 
   useEffect(() => {
@@ -125,7 +164,7 @@ export default function ContentCreatorPage() {
           <FontAwesomeIcon icon={faArrowLeft} className="w-6 h-6" />
         </button>
 
-        <div className="relative w-full max-w-6xl h-auto min-h-[24rem] overflow-hidden flex items-center justify-between flex-col md:flex-row bg-white shadow-xl rounded-lg border-8 border-gray-300 p-8">
+        <div className="relative w-full max-w-6xl h-auto min-h-[24rem] overflow-hidden flex items-center justify-between flex-col md:flex-row bg-white shadow-xl rounded-lg p-8">
           {slides.map((slide, index) => (
             <AnimatePresence key={slide.id}>
               {currentSlide === index && (
@@ -134,27 +173,23 @@ export default function ContentCreatorPage() {
                   initial={{ opacity: 0, x: 100 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
                   className="w-full flex flex-col md:flex-row items-center justify-between relative"
                 >
                   <div className="w-full md:w-1/2 p-4">
-                    <h2 className="text-gray-900 text-lg md:text-2xl font-semibold mb-4">
-                      {slide.text}
-                    </h2>
-                    <p className="text-gray-700 text-base md:text-lg">
-                      {slide.additionalText}
-                    </p>
+                    <h2 className="text-lg md:text-2xl font-semibold">{slide.text}</h2>
+                    <p className="text-base md:text-lg">{slide.additionalText}</p>
                   </div>
-
-                  <div className="md:w-1/2 h-auto relative">
+                  <div className="md:w-1/2 h-auto">
                     <img
                       src={slide.image}
                       alt={`Slide ${index + 1}`}
                       className="w-full h-full object-contain rounded-lg"
                     />
                   </div>
-
-                  {slide.isLocked && <LockedContent onSubscribe={handleSubscribe} />}
+                  {!isUnlocked && slide.isLocked && (
+                    <LockedContent onUnlock={handleUnlock} onSubscribe={handleSubscribe} />
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -173,9 +208,6 @@ export default function ContentCreatorPage() {
           ))}
         </div>
       </div>
-
-      <footer className="w-full bg-gray-900 text-white">
-      </footer>
     </div>
   );
 }

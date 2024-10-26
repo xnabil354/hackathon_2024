@@ -18,8 +18,8 @@ export default function CheckoutPage() {
 
   // Informasi produk
   const product = {
-    image: "https://d.top4top.io/p_322037btl1.png", // Ganti dengan URL gambar produk asli
-    title: "Strategi Digital Marketing Melalui Youtube",
+    image: "https://k.top4top.io/p_32207g0zj1.png", // Ganti dengan URL gambar produk asli
+    title: "YouTube Content Creator & Marketing",
     category: "course",
     tipe: "youtube",
     price: 149000, // Harga asli
