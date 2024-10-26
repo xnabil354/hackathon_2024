@@ -7,11 +7,29 @@ const Home = () => {
   const [activePlatform, setActivePlatform] = useState<string | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const router = useRouter();
+  // const [searchQuery, setSearchQuery] = useState(""); // State untuk menyimpan input search
 
   const handleStartClick = () => {
     setActivePlatform(null);
     router.push("/platform");
   };
+
+  // const handleSearch = () => {
+  //   const query = searchQuery.toLowerCase();
+
+  //   // Mengarahkan ke section berdasarkan substring dari query
+  //   if (query.includes("introduce") || query.includes("intro")) {
+  //     document.getElementById("introduce-section")?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (query.includes("penting") || query.includes("sosial")) {
+  //     document.getElementById("media-sosial-penting-section")?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (query.includes("testi")) { // Termasuk "testi" dan "testimon"
+  //     document.getElementById("testimoni")?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (query.includes("benefit") || query.includes("manfaat")) {
+  //     document.getElementById("benefit-section")?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (query.includes("visi")) {
+  //     document.getElementById("visi-misi")?.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   // Data testimonial
   const testimonials = [
@@ -27,32 +45,32 @@ const Home = () => {
       id: 2,
       name: "Bu Sarah",
       role: "Pengelola Wisata Pantai Indah",
-      image: "/api/placeholder/80/80",
-      banner: "https://e.top4top.io/p_3204969bs1.png", // Banner pantai
+      image: "https://k.top4top.io/p_3220t6q5j2.png",
+      banner: "https://e.top4top.io/p_3221jh1d11.jpg", // Banner pantai
       text: "Platform ini sangat membantu kami dalam mempromosikan wisata pantai. Sekarang kami lebih percaya diri dalam membuat konten yang menarik di sosial media."
     },
     {
       id: 3,
       name: "Pak Ahmad",
       role: "Koordinator Desa Wisata",
-      image: "/api/placeholder/80/80",
-      banner: "https://h.top4top.io/p_3204969bs1.png", // Banner desa wisata
+      image: "https://k.top4top.io/p_3220t6q5j2.png",
+      banner: "https://f.top4top.io/p_3221477z44.jpg", // Banner desa wisata
       text: "Berkat panduan yang diberikan, desa wisata kami sekarang memiliki presence yang kuat di sosial media. Pengunjung meningkat signifikan!"
     },
     {
       id: 4,
       name: "Ibu Rina",
       role: "Pengusaha Homestay",
-      image: "/api/placeholder/80/80",
-      banner: "https://l.top4top.io/p_3204rmp321.jpg", // Banner homestay
+      image: "https://k.top4top.io/p_3220t6q5j2.png",
+      banner: "https://a.top4top.io/p_32213p6wg1.jpg", // Banner homestay
       text: "Awalnya bingung bagaimana memasarkan homestay di era digital. Setelah mengikuti program ini, okupansi homestay kami meningkat pesat."
     },
     {
       id: 5,
       name: "Pak Dedi",
       role: "Pengelola Wisata Gunung",
-      image: "/api/placeholder/80/80",
-      banner: "https://k.top4top.io/p_3204xnrq91.jpeg", // Banner gunung
+      image: "https://k.top4top.io/p_3220t6q5j2.png",
+      banner: "https://f.top4top.io/p_3221tsl6r1.jpg", // Banner gunung
       text: "Sangat terbantu dengan materi pelatihan yang lengkap. Sekarang kami bisa membuat konten yang menarik dan viral di TikTok dan Instagram."
     }
   ];
@@ -70,6 +88,7 @@ const Home = () => {
 
   return (
     <main>
+
       <section className="relative">
         <Image
           src="https://c.top4top.io/p_3203xbm5l1.jpg"
@@ -102,7 +121,7 @@ const Home = () => {
       </section>
 
 
-      <section className="p-8 bg-blue-50 text-center">
+      <section id="introduce-section" className="p-8 bg-blue-50 text-center">
         <h2 className="text-3xl font-extrabold text-gray-800 mb-4 relative inline-block before:absolute before:w-24 before:h-1 before:bg-gradient-to-r from-green-400 to-blue-500 before:-bottom-2 before:left-1/2 before:-translate-x-1/2">
           Perkenalkan tempat wisata anda lebih luas dengan kami
         </h2>
@@ -345,7 +364,7 @@ const Home = () => {
       </section>
 
       {/* Section for Media Sosial Penting */}
-      <section className="p-8 bg-gradient-to-r from-gray-50 to-blue-50">
+      <section id="media-sosial-penting-section" className="p-8 bg-gradient-to-r from-gray-50 to-blue-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold text-gray-800 mb-6 relative inline-block before:absolute before:w-20 before:h-1 before:bg-gradient-to-r from-blue-400 to-purple-600 before:-bottom-2 before:left-1/2 before:-translate-x-1/2">
             Mengapa Media Sosial Penting?
@@ -367,7 +386,7 @@ const Home = () => {
       </section>
 
       {/* Testimonial Section */}
-<section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+<section id="testimoni" className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
   <div className="max-w-6xl mx-auto px-4">
     <h2 className="text-3xl font-bold text-center mb-12 relative">
       Testimoni Klien Kami
@@ -459,55 +478,78 @@ const Home = () => {
 </section>
 
 <section className="p-8 bg-gray-50">
-  <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">Manfaat Digital Marketing untuk Bisnis:</h2>
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">Manfaat Digital Marketing untuk Bisnis:</h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {/* First Benefit */}
-    <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-      <div className="absolute top-0 left-0 m-4 flex space-x-2">
-        <div className="bg-red-400 w-4 h-4 rounded-full"></div>
-        <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
-        <div className="bg-green-400 w-4 h-4 rounded-full"></div>
-      </div>
-      <div className="border border-dotted border-blue-400 rounded-md p-4 hover:border-solid hover:border-blue-600 transition-all duration-300">
-        <h3 className="text-2xl font-bold text-gray-800 mb-2">Lebih Mudah Dikenal Banyak Orang</h3>
-        <p className="text-gray-600">
-          Digital marketing membantu bisnis Anda lebih dikenal di berbagai platform online, seperti media sosial dan mesin pencari.
-        </p>
-      </div>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {/* First Benefit */}
+          <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <div className="absolute top-0 left-0 m-4 flex space-x-2">
+              <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+            </div>
+            <div className="border-2 border-transparent bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 p-1 rounded-lg">
+              <div className="bg-white p-4 rounded-lg">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Lebih Mudah Dikenal Banyak Orang</h3>
+                <p className="text-gray-600">
+                  Digital marketing membantu bisnis Anda lebih dikenal di berbagai platform online, seperti media sosial dan mesin pencari.
+                </p>
+              </div>
+            </div>
+          </div>
 
-    {/* Second Benefit */}
-    <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-      <div className="absolute top-0 left-0 m-4 flex space-x-2">
-        <div className="bg-red-400 w-4 h-4 rounded-full"></div>
-        <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
-        <div className="bg-green-400 w-4 h-4 rounded-full"></div>
-      </div>
-      <div className="border border-dotted border-pink-400 rounded-md p-4 hover:border-solid hover:border-pink-600 transition-all duration-300">
-        <h3 className="text-2xl font-bold text-gray-800 mb-2">Biaya Lebih Terjangkau</h3>
-        <p className="text-gray-600">
-          Dibandingkan dengan iklan di TV atau radio, digital marketing memungkinkan Anda mengatur budget sesuai kebutuhan.
-        </p>
-      </div>
-    </div>
+          {/* Second Benefit */}
+          <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <div className="absolute top-0 left-0 m-4 flex space-x-2">
+              <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+            </div>
+            <div className="border-2 border-transparent bg-gradient-to-r from-green-300 via-yellow-300 to-orange-300 p-1 rounded-lg">
+              <div className="bg-white p-4 rounded-lg">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Biaya Lebih Terjangkau</h3>
+                <p className="text-gray-600">
+                  Dibandingkan dengan iklan di TV atau radio, digital marketing memungkinkan Anda mengatur budget sesuai kebutuhan.
+                </p>
+              </div>
+            </div>
+          </div>
 
-    {/* Third Benefit */}
-    <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-      <div className="absolute top-0 left-0 m-4 flex space-x-2">
-        <div className="bg-red-400 w-4 h-4 rounded-full"></div>
-        <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
-        <div className="bg-green-400 w-4 h-4 rounded-full"></div>
-      </div>
-      <div className="border border-dotted border-purple-400 rounded-md p-4 hover:border-solid hover:border-purple-600 transition-all duration-300">
-        <h3 className="text-2xl font-bold text-gray-800 mb-2">Bisa Menargetkan Pelanggan yang Tepat</h3>
-        <p className="text-gray-600">
-          Digital marketing memungkinkan Anda mengarahkan iklan ke orang-orang yang sesuai, berdasarkan minat, lokasi, usia, dan kebiasaan mereka di internet.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+          {/* Third Benefit */}
+          <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <div className="absolute top-0 left-0 m-4 flex space-x-2">
+              <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+            </div>
+            <div className="border-2 border-transparent bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 p-1 rounded-lg">
+              <div className="bg-white p-4 rounded-lg">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Bisa Menargetkan Pelanggan yang Tepat</h3>
+                <p className="text-gray-600">
+                  Digital marketing memungkinkan Anda mengarahkan iklan ke orang-orang yang sesuai, berdasarkan minat, lokasi, usia, dan kebiasaan mereka di internet.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Fourth Benefit - New */}
+          <div className="relative bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <div className="absolute top-0 left-0 m-4 flex space-x-2">
+              <div className="bg-red-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-yellow-400 w-4 h-4 rounded-full"></div>
+              <div className="bg-green-400 w-4 h-4 rounded-full"></div>
+            </div>
+            <div className="border-2 border-transparent bg-gradient-to-r from-teal-300 via-blue-300 to-indigo-300 p-1 rounded-lg">
+              <div className="bg-white p-4 rounded-lg">
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Interaksi langsung dengan pelanggan</h3>
+                <p className="text-gray-600">
+                Digital marketing memungkinkan perusahaan untuk berinteraksi langsung dengan pelanggan melalui media sosial dan alat komunikasi digital lainnya. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       {/* Section for Visi Misi */}
