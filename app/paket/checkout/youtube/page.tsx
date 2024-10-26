@@ -22,7 +22,7 @@ export default function CheckoutPage() {
     title: "YouTube Content Creator & Marketing",
     category: "course",
     tipe: "youtube",
-    price: 149000, // Harga asli
+    price: 199000, // Harga asli
   };
 
   const handleCheckout = () => {

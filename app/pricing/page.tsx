@@ -42,7 +42,7 @@ const products = [
     people: 28,
     modules: 17,
     originalPrice: 149000,
-    salePrice: 149000,
+    salePrice: 199000,
     rentPrice: 49000,
     checkoutPath: '/paket/checkout/youtube'
   }

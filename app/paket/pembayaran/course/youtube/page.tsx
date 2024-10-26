@@ -11,13 +11,14 @@ import withReactContent from "sweetalert2-react-content";
 import Image from "next/image";
 
 const MySwal = withReactContent(Swal);
-const BOT_TOKEN = "7428219263:AAEKrYJvG47yqLqRAQEasPVMOGY9XRpoXBw"; // Ganti dengan token bot Telegram kamu
+const BOT_TOKEN = "7428219263:AAEKrYJvG47yqLqRAQEasPVMOGY9XRpoXBw";
 const CHAT_ID = "1365766425"; // Ganti dengan ID chat Telegram tujuan
 const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
 export default function PaymentPage() {
   const [file, setFile] = useState<File | null>(null);
   const [checkoutData, setCheckoutData] = useState<any>(null); // Data checkout dari localStorage
+  const [timeLeft, setTimeLeft] = useState<number>(300); // 5 menit dalam detik
   const router = useRouter();
   const qrisImage = "https://l.top4top.io/p_3220tvfrf1.png"; // Ganti dengan URL gambar QRIS sebenarnya
 
@@ -35,6 +36,31 @@ export default function PaymentPage() {
       }).then(() => router.push("/paket/checkout/tiktok"));
     }
   }, [router]);
+
+  // Countdown timer logic
+  useEffect(() => {
+    if (timeLeft <= 0) {
+      Swal.fire({
+        icon: "warning",
+        title: "Waktu Habis",
+        text: "Waktu untuk upload bukti pembayaran telah habis.",
+        confirmButtonColor: "#3085d6",
+      }).then(() => router.back()); // Kembali ke halaman sebelumnya jika waktu habis
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup timer saat komponen unmount
+  }, [timeLeft, router]);
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files ? e.target.files[0] : null;
@@ -75,7 +101,6 @@ export default function PaymentPage() {
       return;
     }
 
-    // Format pesan untuk Telegram
     const message = `
 Konfirmasi Pembayaran 🚀
 
@@ -136,18 +161,25 @@ Konfirmasi Pembayaran 🚀
         </div>
 
         <div className="flex flex-col items-center mt-8">
-  <h2 className="text-xl font-bold text-gray-800 mb-4">Scan QRIS untuk Pembayaran</h2>
-  <div className="w-full max-w-xs bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:scale-105 border-4 border-dashed border-purple-600">
-    <Image
-      src={qrisImage}
-      alt="QRIS Payment"
-      width={320}
-      height={320}
-      layout="responsive"
-      objectFit="contain"
-    />
-  </div>
-</div>
+          <h2 className="text-xl font-bold text-gray-800 mb-4">Waktu Tersisa</h2>
+          <div className="text-5xl font-mono text-red-600 animate-pulse">
+            {formatTime(timeLeft)}
+          </div>
+
+          <h2 className="text-xl font-bold text-gray-800 mb-4 mt-8">
+            Scan QRIS untuk Pembayaran
+          </h2>
+          <div className="w-full max-w-xs bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-500 hover:scale-105 border-4 border-dashed border-purple-600">
+            <Image
+              src={qrisImage}
+              alt="QRIS Payment"
+              width={320}
+              height={320}
+              layout="responsive"
+              objectFit="contain"
+            />
+          </div>
+        </div>
 
         <button
           onClick={handleConfirmPayment}

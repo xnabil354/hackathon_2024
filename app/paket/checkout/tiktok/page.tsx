@@ -22,7 +22,7 @@ export default function CheckoutPage() {
     title: "Course Tiktok Marketing - Viral & Trending",
     category: "course",
     tipe: "tiktok",
-    price: 149000, // Harga asli
+    price: 99000, // Harga asli
   };
 
   const handleCheckout = () => {
