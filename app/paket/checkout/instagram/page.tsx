@@ -52,12 +52,20 @@ export default function CheckoutPage() {
   };
 
   const handleCouponCheck = () => {
-    if (coupon === "DISKON50") {
+    if (coupon === "DISKON50" || coupon === "hackathon2024" || coupon === "codexa2") {
       setDiscount(product.price * 0.5); // Diskon 50%
       Swal.fire({
         icon: 'success',
         title: 'Kupon Berhasil',
         text: 'Diskon 50% berhasil diterapkan!',
+        confirmButtonColor: '#3085d6',
+      });
+    } else if (coupon === "DISKON25") {
+      setDiscount(product.price * 0.25)
+      Swal.fire({
+        icon: 'success',
+        title: 'Kupon Berhasil',
+        text: 'Diskon 25% berhasil diterapkan!',
         confirmButtonColor: '#3085d6',
       });
     } else {
