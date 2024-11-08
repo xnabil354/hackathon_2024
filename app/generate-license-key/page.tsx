@@ -28,7 +28,6 @@ export default function GenerateLicenseKeyPage() {
         quantity: Math.max(1, quantity)
       });
       
-      console.log('Generate response:', response.data);
       
       if (response.data.success && response.data.data) {
         setKeys(response.data.data.keys);
