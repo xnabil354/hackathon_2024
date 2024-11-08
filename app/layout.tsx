@@ -2,6 +2,7 @@ import './globals.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

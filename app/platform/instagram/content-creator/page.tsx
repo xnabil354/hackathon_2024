@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -5,9 +6,10 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faLock } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios'; // Import axios untuk API request
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-const slides = [
+const initialSlides = [
   {
     id: 'tinjau-postingan',
     text: `Tinjau Postingan yang Menarik Perhatian
@@ -66,20 +68,57 @@ Tinjau konten yang telah mendapatkan banyak interaksi dan perhatian di Instagram
   },
 ];
 
+
 const LockedContent = ({ onUnlock, onSubscribe }: { onUnlock: () => void; onSubscribe: () => void }) => {
   const [licenseKey, setLicenseKey] = useState('');
+  const [isValidating, setIsValidating] = useState(false);
 
   const validateLicenseKey = async () => {
-    try {
-      const response = await axios.post('/api/validate-license', { licenseKey });
+    if (!licenseKey.trim()) {
+      await Swal.fire({
+        title: 'Error!',
+        text: 'Silakan masukkan license key',
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+      });
+      return;
+    }
 
-      if (response.data.valid) {
-        onUnlock(); // Unlock content if license key is valid
+    setIsValidating(true);
+    try {
+      // Menggunakan endpoint baru
+      const response = await axios.post('/api/keys/validate-license', {
+        licenseKey: licenseKey.trim()
+      });
+
+      // Menggunakan format response yang baru
+      if (response.data.success && response.data.data.valid) {
+        await Swal.fire({
+          title: 'Success!',
+          text: 'License key valid! Konten akan dibuka',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+        });
+        localStorage.setItem('contentUnlocked', 'true');
+        onUnlock();
       } else {
-        alert('License Key tidak valid!');
+        await Swal.fire({
+          title: 'Error!',
+          text: response.data.error || 'License Key tidak valid!',
+          icon: 'error',
+          confirmButtonColor: '#3085d6',
+        });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error validating license key:', error);
+      await Swal.fire({
+        title: 'Error!',
+        text: error.response?.data?.error || 'Terjadi kesalahan saat validasi license key',
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+      });
+    } finally {
+      setIsValidating(false);
     }
   };
 
@@ -107,18 +146,21 @@ const LockedContent = ({ onUnlock, onSubscribe }: { onUnlock: () => void; onSubs
             onChange={(e) => setLicenseKey(e.target.value)}
             placeholder="Masukkan License Key"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            disabled={isValidating}
           />
           <button
             onClick={validateLicenseKey}
-            className="w-full bg-yellow-500 text-white px-4 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all"
+            disabled={isValidating}
+            className="w-full bg-yellow-500 text-white px-4 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all disabled:bg-yellow-300"
           >
-            Buka Konten
+            {isValidating ? 'Memvalidasi...' : 'Buka Konten'}
           </button>
         </div>
 
         <div className="mt-4">
           <button
             onClick={onSubscribe}
+            disabled={isValidating}
             className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-8 py-3 rounded-lg font-semibold transform hover:scale-105 transition-all shadow-lg hover:shadow-yellow-500/50"
           >
             Berlangganan Sekarang
@@ -129,21 +171,39 @@ const LockedContent = ({ onUnlock, onSubscribe }: { onUnlock: () => void; onSubs
   );
 };
 
+
+// Main Component with persistence
 export default function ContentCreatorPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isUnlocked, setIsUnlocked] = useState(false); // Track if content is unlocked
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [slides, setSlides] = useState(initialSlides);
   const router = useRouter();
+
+  // Check if content is unlocked on mount
+  useEffect(() => {
+    const unlockedStatus = localStorage.getItem('contentUnlocked');
+    if (unlockedStatus === 'true') {
+      handleUnlock();
+    }
+  }, []);
+
+  const handleUnlock = () => {
+    // Update all slides to be unlocked
+    setSlides(currentSlides => 
+      currentSlides.map(slide => ({
+        ...slide,
+        isLocked: false
+      }))
+    );
+    setIsUnlocked(true);
+  };
 
   const handleBack = () => {
     router.back();
   };
 
-  const handleUnlock = () => {
-    setIsUnlocked(true); // Unlock all slides when called
-  };
-
   const handleSubscribe = () => {
-    router.push('/paket/checkout/instagram'); // Navigate to checkout page
+    router.push('/paket/checkout/instagram');
   };
 
   useEffect(() => {
@@ -151,7 +211,7 @@ export default function ContentCreatorPage() {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 15000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -187,7 +247,7 @@ export default function ContentCreatorPage() {
                       className="w-full h-full object-contain rounded-lg"
                     />
                   </div>
-                  {!isUnlocked && slide.isLocked && (
+                  {slide.isLocked && !isUnlocked && (
                     <LockedContent onUnlock={handleUnlock} onSubscribe={handleSubscribe} />
                   )}
                 </motion.div>
