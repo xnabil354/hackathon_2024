@@ -95,9 +95,9 @@ export default function GenerateLicenseKeyPage() {
             <input
               type="number"
               value={quantity}
-              onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-              min={1}
-              max={100} // Menambahkan batasan maksimum
+              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
+              min="1"
+              max="10" // Menambahkan batasan maksimum
               className="p-3 border rounded-lg flex-grow focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <button
