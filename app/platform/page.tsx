@@ -9,7 +9,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Import Back 
 const PlatformPage = () => {
   const router = useRouter();
 
-  const handlePlatformSelect = (platform: 'ui/ux' | 'webdev' | 'cybersec') => {
+  const handlePlatformSelect = (platform: 'design' | 'webdev' | 'cybersec') => {
     router.push(`/platform/${platform}`);
   };
 
@@ -49,7 +49,7 @@ const PlatformPage = () => {
           {/* Tiktok Card */}
           <div
             className="bg-white text-center p-6 cursor-pointer rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl border-4 border-transparent hover:border-lime-500"
-            onClick={() => handlePlatformSelect('ui/ux')}
+            onClick={() => handlePlatformSelect('design')}
           >
             <div className="relative w-full h-40 flex items-center justify-center rounded-lg">
               <i className="fa-brands fa-figma text-6xl text-gray-800"></i>
