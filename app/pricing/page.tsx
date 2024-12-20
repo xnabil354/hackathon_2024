@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const products = [
   {
     id: 1,
-    image: "https://f.top4top.io/p_3276lokn61.jpg",
+    image: "https://h.top4top.io/p_3276jz7dt1.jpg",
     title: "Figma UI/UX Fundamental",
     instructor: "Nabil Hafiyyan Zihni",
     level: "Beginner",
