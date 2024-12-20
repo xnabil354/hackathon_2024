@@ -1,0 +1,6 @@
+{
+  "/pricing/page": "app/pricing/page.js",
+  "/paket/checkout/webdev/page": "app/paket/checkout/webdev/page.js",
+  "/paket/checkout/design/page": "app/paket/checkout/design/page.js",
+  "/paket/checkout/cybersec/page": "app/paket/checkout/cybersec/page.js"
+}

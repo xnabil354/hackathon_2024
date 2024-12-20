@@ -9,7 +9,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'; // Import Back 
 const PlatformPage = () => {
   const router = useRouter();
 
-  const handlePlatformSelect = (platform: 'tiktok' | 'instagram' | 'youtube') => {
+  const handlePlatformSelect = (platform: 'ui/ux' | 'webdev' | 'cybersec') => {
     router.push(`/platform/${platform}`);
   };
 
@@ -31,7 +31,7 @@ const PlatformPage = () => {
       <section className="relative flex flex-col items-center justify-center flex-grow px-4 z-10 bg-blue-50">
         <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
           <Image
-            src="https://j.top4top.io/p_32041l3md1.jpg"
+            src="/5.jpg"
             alt="Background Image"
             layout="fill"
             className="object-cover"
@@ -49,42 +49,42 @@ const PlatformPage = () => {
           {/* Tiktok Card */}
           <div
             className="bg-white text-center p-6 cursor-pointer rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl border-4 border-transparent hover:border-lime-500"
-            onClick={() => handlePlatformSelect('tiktok')}
+            onClick={() => handlePlatformSelect('ui/ux')}
           >
             <div className="relative w-full h-40 flex items-center justify-center rounded-lg">
-              <i className="fab fa-tiktok text-6xl text-gray-800"></i>
+              <i className="fa-brands fa-figma text-6xl text-gray-800"></i>
             </div>
-            <h3 className="mt-4 text-2xl font-semibold">Tiktok</h3>
+            <h3 className="mt-4 text-2xl font-semibold">UI/UX</h3>
             <p className="text-gray-700 mt-2">
-              Platform media sosial berbasis video pendek yang memungkinkan pengguna membuat, membagikan, dan menemukan video singkat yang sering kali dipadukan dengan musik, efek, dan filter.
+            UI (User Interface) dan UX (User Experience) adalah dua elemen penting yang harus diperhatikan dalam setiap desain situs web. UI mencakup elemen visual yang memudahkan pengguna berinteraksi dengan situs, seperti tombol, menu, dan layout
             </p>
           </div>
 
           {/* Instagram Card */}
           <div
             className="bg-white text-center p-6 cursor-pointer rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl border-4 border-transparent hover:border-lime-500"
-            onClick={() => handlePlatformSelect('instagram')}
+            onClick={() => handlePlatformSelect('webdev')}
           >
             <div className="relative w-full h-40 flex items-center justify-center rounded-lg">
-              <i className="fab fa-instagram text-6xl text-gray-800"></i>
+              <i className="fa-solid fa-code text-6xl text-gray-800"></i>
             </div>
-            <h3 className="mt-4 text-2xl font-semibold">Instagram</h3>
+            <h3 className="mt-4 text-2xl font-semibold">Web Developer</h3>
             <p className="text-gray-700 mt-2">
-              Platform berbagi foto dan video yang memungkinkan pengguna mengunggah foto, video singkat, serta stories yang hilang dalam 24 jam, dengan fitur IGTV untuk video lebih panjang.
+            Web Developer berperan sebagai pengembang teknis yang membangun, menguji, dan memelihara situs web. Dengan keahlian dalam berbagai bahasa pemrograman seperti HTML, CSS, JavaScript, dan backend technologies seperti PHP atau Node.js
             </p>
           </div>
 
           {/* Youtube Card */}
           <div
             className="bg-white text-center p-6 cursor-pointer rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl border-4 border-transparent hover:border-lime-500"
-            onClick={() => handlePlatformSelect('youtube')}
+            onClick={() => handlePlatformSelect('cybersec')}
           >
             <div className="relative w-full h-40 flex items-center justify-center rounded-lg">
-              <i className="fab fa-youtube text-6xl text-gray-800"></i>
+              <i className="fa-solid fa-shield-halved text-6xl text-gray-800"></i>
             </div>
-            <h3 className="mt-4 text-2xl font-semibold">Youtube</h3>
+            <h3 className="mt-4 text-2xl font-semibold">Cyber Security</h3>
             <p className="text-gray-700 mt-2">
-              Platform berbagi video terbesar di dunia, memungkinkan pengguna mengunggah, menonton, dan berkomentar pada video dengan durasi panjang.
+            Keamanan siber adalah upaya untuk melindungi sistem, jaringan, dan data dari ancaman digital seperti peretasan, malware, dan ransomware. Di tengah kemajuan teknologi, ancaman siber semakin canggih, sehingga membutuhkan strategi perlindungan yang lebih kuat dan terintegrasi
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ const PlatformPage = () => {
 
       {/* Refined Section: Manfaat dari Sosial Media Marketing */}
       <section className="flex flex-col items-center justify-center p-12 bg-gray-100 mb-10">
-        <h1 className="text-3xl font-bold text-center mb-12 text-gray-800 mb-10">Apa manfaat dari sosial media marketing?</h1>
+        <h1 className="text-3xl font-bold text-center mb-12 text-gray-800 mb-10">Apa manfaat dari pelatihan PhytonRaptors ?</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* First Benefit */}
@@ -106,8 +106,8 @@ const PlatformPage = () => {
               height={96}
               className="w-24 h-24 mb-6 rounded-full"
             />
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Menjangkau audiens lebih luas</h3>
-            <p className="text-gray-600">Dengan konten yang menarik, bisnis dapat meningkatkan kesadaran merek dan memperluas jangkauan pasarnya.</p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Design UI/UX</h3>
+            <p className="text-gray-600">Meningkatkan Pengalaman Pengguna (UX) dan Desain Antarmuka (UI) Pelatihan dalam UI/UX</p>
           </div>
 
           {/* Second Benefit */}
@@ -119,8 +119,8 @@ const PlatformPage = () => {
               height={96}
               className="w-24 h-24 mb-6 rounded-full"
             />
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Hemat biaya</h3>
-            <p className="text-gray-600">Dibandingkan dengan metode pemasaran tradisional, sosial media marketing lebih hemat biaya. Dengan strategi yang tepat, bisnis bisa mendapatkan hasil maksimal.</p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Dijamin Aman Data Kamu</h3>
+            <p className="text-gray-600">Memastikan Keamanan Digital dan Perlindungan Data</p>
           </div>
 
           {/* Third Benefit */}
@@ -132,8 +132,8 @@ const PlatformPage = () => {
               height={96}
               className="w-24 h-24 mb-6 rounded-full"
             />
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Interaksi langsung dengan audiens</h3>
-            <p className="text-gray-600">Platform sosial media memungkinkan bisnis untuk berinteraksi langsung dengan audiens, memperkuat hubungan dengan pelanggan, dan meningkatkan loyalitas.</p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Responsive Web</h3>
+            <p className="text-gray-600">Meningkatkan Keterampilan Pengembangan Situs Web yang Responsif dan Berkualitas</p>
           </div>
         </div>
       </section>

@@ -42,7 +42,7 @@ export default function Navbar() {
         <Link href="/" passHref>
           <div className="relative w-32 h-12 cursor-pointer">
             <Image
-              src="https://g.top4top.io/p_3204risgb1.png"
+              src="https://b.top4top.io/p_32740fuzl1.png"
               alt="Logo"
               layout="fill"
               objectFit="contain"

@@ -6,17 +6,17 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nusa Cipta",
-  description: "Learn how to use social media to promote tourism destinations",
-  icons: "/icon-512x512.png",
+  title: "Phyton Raptors",
+  description: "Improve Your Experience",
+  icons: "https://b.top4top.io/p_32740fuzl1.png",
 };
 
 const HeadContent = () => (
   <head>
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="https://b.top4top.io/p_32740fuzl1.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="https://b.top4top.io/p_32740fuzl1.png" />
     <meta name="theme-color" content="#000000" />
   </head>
 );
