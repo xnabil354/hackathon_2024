@@ -565,7 +565,7 @@ const Home = () => {
           {/* Visi Misi Image Section */}
           <div className="md:w-1/2 flex items-center transform transition-transform hover:scale-105">
             <Image
-              src="https://l.top4top.io/p_3204rmp321.jpg"
+              src="/pp.jpg"
               alt="Gambar Visi Misi"
               width={600}
               height={460}
