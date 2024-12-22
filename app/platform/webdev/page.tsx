@@ -74,7 +74,7 @@ const TiktokPage = () => {
                 className="px-4 py-2 bg-lime-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-110 hover:bg-lime-600 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavigation('/platform/tiktok/register-akun')}
+                onClick={() => handleNavigation('/platform/webdev/register-akun')}
               >
                 Pelajari
               </motion.button>
@@ -108,7 +108,7 @@ const TiktokPage = () => {
                 className="px-4 py-2 bg-lime-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-110 hover:bg-lime-600 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavigation('/platform/tiktok/membuat-profile')}
+                onClick={() => handleNavigation('/platform/webdev/membuat-profile')}
               >
                 Pelajari
               </motion.button>
@@ -162,7 +162,7 @@ const TiktokPage = () => {
                 className="px-4 py-2 bg-lime-500 text-white font-semibold rounded-full shadow-lg transform transition-transform hover:scale-110 hover:bg-lime-600 text-sm"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavigation('/platform/tiktok/content-creator')}
+                onClick={() => handleNavigation('/platform/webdev/content-creator')}
               >
                 Pelajari
               </motion.button>
